@@ -1,0 +1,21 @@
+services:
+  api:
+    container_name: api
+    image: go_api:air
+    pull_policy: never
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: air
+    working_dir: /app
+    ports:
+      - 8080:8080
+    volumes:
+      - ..:/app
+      - /app/tmp
+      - go_pkg_cache:/go/pkg/mod
+      - go_build_cache:/root/.cache/go-build
+
+volumes:
+  go_pkg_cache:
+  go_build_cache:
