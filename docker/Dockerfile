@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-# ------------------------------
+
 # ------------------------------
 FROM golang:1.25-alpine AS build
 
@@ -21,10 +21,9 @@ RUN --mount=type=cache,target=/go/pkg/mod \
 	go build -ldflags="-w -s" -o api ./cmd/api
 
 # -----------------
-# -----------------
 FROM scratch AS api
 
-# Copy user and SSL Certificates from build.
+# Copy user and SSL Certificates from build
 # Certificates needed to prevent x509 unknown authority errors
 COPY --from=build /etc/passwd /etc/passwd
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
@@ -33,7 +32,6 @@ USER app_user
 
 ENTRYPOINT ["/usr/local/bin/api"]
 
-# ----------------------------
 # ----------------------------
 FROM golang:1.25-alpine AS air
 

@@ -13,9 +13,9 @@ services:
     volumes:
       - ..:/app
       - /app/tmp
-      - go_pkg_cache:/go/pkg/mod
       - go_build_cache:/root/.cache/go-build
+      - go_pkg_cache:/go/pkg/mod
 
 volumes:
-  go_pkg_cache:
   go_build_cache:
+  go_pkg_cache:
