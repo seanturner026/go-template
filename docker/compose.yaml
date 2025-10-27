@@ -1,7 +1,7 @@
 services:
   api:
     container_name: api
-    image: go_api:air
+    image: go-api:air
     pull_policy: never
     build:
       context: ..

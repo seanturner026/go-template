@@ -4,7 +4,7 @@ _default:
 alias b := build
 [doc('docker build')]
 build:
-  @docker build . -f docker/Dockerfile --target api -t go_api:latest
+  @docker build . -f docker/Dockerfile --target api -t go-api:latest
 
 alias s := serve
 [doc('serve :8080 with air via docker compose')]
