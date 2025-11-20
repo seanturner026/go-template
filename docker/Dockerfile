@@ -35,7 +35,7 @@ ENTRYPOINT ["/usr/local/bin/api"]
 # ----------------------------
 FROM golang:1.25-alpine@sha256:d3f0cf7723f3429e3f9ed846243970b20a2de7bae6a5b66fc5914e228d831bbb AS air
 
-COPY --from=cosmtrek/air:latest@sha256:3def16c884b2b9409a4c7bb987cd76d656a12d0e0436fe8c583df93014e0356c /go/bin/air /usr/local/bin/air
+COPY --from=cosmtrek/air:latest@sha256:e6573cd1260df220458b86cc0058c52ed78cec7d1de7c65d92bb0034eff9906c /go/bin/air /usr/local/bin/air
 COPY .air.toml .
 
 CMD ["air"]
